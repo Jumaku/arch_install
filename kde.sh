@@ -17,7 +17,7 @@ sudo hwclock --systohc
 #sudo systemctl enable --now auto-cpufreq
 
 
-    sudo pacman -S xorg sddm plasma kde-applications firefox simplescreenrecorder obs-studio vlc papirus-icon-theme kdenlive materia-kde
+sudo pacman -S xorg sddm plasma kde-applications firefox simplescreenrecorder obs-studio vlc papirus-icon-theme kdenlive materia-kde
  #sudo flatpak install -y spotify
 
 sudo systemctl enable sddm

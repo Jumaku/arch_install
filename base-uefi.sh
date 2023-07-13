@@ -1,16 +1,20 @@
 #!/bin/bash
+USERNAME= asd
+ROOTPASS= asd
+USERPASS= asd
+
 
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
 #sed -i '178s/.//' /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
-echo "KEYMAP=de_CH-latin1" >> /etc/vconsole.conf
+echo "KEYMAP=us" >> /etc/vconsole.conf
 echo "arch" >> /etc/hostname
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1       localhost" >> /etc/hosts
 echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
-echo root:asd | chpasswd
+echo root:$ROOTPASS | chpasswd
 
 # You can add xorg to the installation packages, I usually add it at the DE or WM install script
 # You can remove the tlp package if you are installing on a desktop or vm
@@ -36,11 +40,11 @@ systemctl enable libvirtd
 systemctl enable firewalld
 systemctl enable acpid
 
-useradd -m juk
-echo juk:asd | chpasswd
-usermod -aG libvirt juk
+useradd -m $USERNAME
+echo $USERNAME:$USERPASS | chpasswd
+usermod -aG libvirt $USERNAME
 
-echo "juk ALL=(ALL) ALL" >> /etc/sudoers.d/juk
+echo "$USERNAME ALL=(ALL) ALL" >> /etc/sudoers.d/$USERNAME
 
 
 printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m"

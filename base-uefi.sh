@@ -2,7 +2,7 @@
 
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
-sed -i '178s/.//' /etc/locale.gen
+#sed -i '178s/.//' /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 echo "KEYMAP=de_CH-latin1" >> /etc/vconsole.conf
@@ -40,7 +40,7 @@ useradd -m juk
 echo juk:asd | chpasswd
 usermod -aG libvirt juk
 
-echo "ermanno ALL=(ALL) ALL" >> /etc/sudoers.d/juk
+echo "juk ALL=(ALL) ALL" >> /etc/sudoers.d/juk
 
 
 printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m"

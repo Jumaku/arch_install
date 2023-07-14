@@ -1,7 +1,7 @@
 #!/bin/bash
-USERNAME= asd
-ROOTPASS= asd
-USERPASS= asd
+USERNAME='asd'
+ROOTPASS='asd'
+USERPASS='asd'
 
 
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
